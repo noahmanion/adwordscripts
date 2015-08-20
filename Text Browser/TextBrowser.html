@@ -1,0 +1,58 @@
+// Text Browser.<!DOCTYPE html>
+<html>
+<head>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.js">
+	</script>
+</head>
+<body>
+<div id="wrap">
+	<div class="container">
+		<div class="page-header">
+		<h2 class="title">The Text Browser</h2>
+		<small>Enter a URl below and hit the go! button.</small>
+
+		<div class="input-append">
+			<input id="URL" type="text">
+			<button type="button" onclick='loadUrl();' id="go">Go!</button>button>
+			</div>
+
+		</div>
+		<div class="loading"></div>
+		<div class="webpage"></div>
+	</div>
+</div>
+<script>
+
+$("#URL").keyup(function(e){
+	if(e.keyCode == 13){
+		loadURL();
+	}
+});
+function onSuccess(html) {
+	$('div.wepbpage').html(html);
+
+	$('div.webpage').show();
+	$('div.loading').hide();
+
+	$('div.webpage a').bind("click", function() {
+		var value = $(this).attr('href');
+		$('#URL').val(value);
+		loadURL();
+		return false;
+	});
+	$("div.webpage img").remove();
+    $("div.webpage iframe").remove();
+    $("div.webpage form").remove();
+}
+function loadURL() {
+	var url = $("#URL").val();
+	$('div.webpage').hide("fase");
+	if (url.length>=4) {
+		$('div.loading').show();
+		google.script.run.withSuccessHandler(onSuccess).getHTML(url);
+	}
+}
+</script>
+
+</body>
+</html>
