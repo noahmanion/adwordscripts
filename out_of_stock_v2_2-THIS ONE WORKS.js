@@ -1,8 +1,8 @@
-var spreadsheet_url = "https://docs.google.com/a/bradsdeals.com/spreadsheets/d/1IkFJkRhg39RNH_z_qVa-E6oN2Ne77E4ULpAszullAxM/edit#gid=2085496681";
+var spreadsheet_url = "SPREADSHEET HERE";
 var OUT_OF_STOCK_TEXT = "Expired";
 var subject = "!!!!!!!EXPIRED DEALS!!!!!!!!";
-var recipient = "noah@bradsdeals.com";
-var results = "There was an expired deal at: ";
+var recipient = "EMAIL RECIPEINT HERE";
+var results = "There is an out of stock product at: ";
 
 
 
